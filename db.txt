@@ -1,0 +1,45 @@
+create table file_type(
+id integer primary key,
+type text
+);
+
+create table filelist (
+id integer primary key,
+id_type integer,
+filename text,
+used integer,
+foreign key (id_type) references filetype(id)
+);
+
+create table session(
+id integer primary key,
+atimestamp timestamp,
+user text
+);
+
+create table reviewed_survey (
+id integer primary key,
+id_session integer,
+report text,
+foreign key (id_session) references session(id)
+);
+
+create table reviewed_group (
+id integer primary key,
+id_rev_survey integer,
+survey_name text,
+survey_id integer,
+region text,
+species text,
+foreign key (id_rev_survey) references reviewed_survey(id)
+);
+
+create table reviewed_file(
+id integer primary key,
+id_rev_group integer,
+id_file_type integer,
+filename text,
+foreign key (id_rev_group) references reviewed_group(id)
+foreign key (id_file_type) references file_type(id)
+);
+
