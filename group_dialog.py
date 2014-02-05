@@ -1,4 +1,4 @@
-import sys, os.path
+import sys, os
 import tempfile
 
 from PyQt4.QtCore import *
@@ -6,7 +6,8 @@ from PyQt4.QtGui import *
 
 from mainfrm import Ui_MainWindow
 
-strRoot='/home/joana/projects/no/test2/'
+#strRoot=QDir.currentPath()
+strRoot='/media/IOMEGA HDD/Angola_Surveys/2002/'
 
 class groupDialog(QMainWindow):
 
@@ -17,62 +18,65 @@ class groupDialog(QMainWindow):
         self.ui.setupUi(self)
                         
         self.initTree()
-        
-        
-    def initTree(self):        
-                
-        self.model=QFileSystemModel()
-        self.model1=QFileSystemModel()
-        self.model2=QFileSystemModel()
-        self.model3=QFileSystemModel()
-                        
-        #Setting model for the treeview (dirs only!)                        
-        self.ui.treeView.setModel(self.model)        
-        self.model.setFilter(QDir.Dirs | QDir.NoDotAndDotDot)
+               
+    def chooseDir(self):
+        strRoot = QFileDialog.getExistingDirectory(self, 'Open Root Dir')              
+        self.ui.lbRootDir.setText('Root directory set to: '  + strRoot)   
         self.model.setRootPath(strRoot)
         self.ui.treeView.setRootIndex(self.model.index(self.model.rootPath()))
-        
-        #Initializing the lists
-        self.ui.listBiomass.setModel(self.model1)
-        self.model1.setFilter(QDir.Files | QDir.NoDotAndDotDot)   
-
-        filters1 = []
-        filters1.append("*.xls")
-        
-        self.model1.setNameFilters(filters1);
-                                                 
-        self.ui.listGeom.setModel(self.model2)
-        self.model2.setFilter(QDir.Files | QDir.NoDotAndDotDot)   
-
-        filters2 = []
-        filters2.append("*.bna")
-        filters2.append("*.mrg")
-        
-        self.model2.setNameFilters(filters2);
-
-        self.ui.listImages.setModel(self.model3)
-        self.model3.setFilter(QDir.Files | QDir.NoDotAndDotDot)   
-
-        filters3 = []
-        filters3.append("*.jpg")
-        filters3.append("*.png")
-        filters3.append("*.bmp")
-        
-        self.model3.setNameFilters(filters3);
-
-    def adjustPreview(self,idx):
+               
+    def initTree(self):                        
+        #Setting model for the treeview (dirs only!)
+        self.model=QFileSystemModel()                                                        
+        self.ui.treeView.setModel(self.model)        
+        #self.model.setFilter(QDir.Dirs | QDir.NoDotAndDotDot)
+        self.model.setFilter(QDir.Dirs | QDir.NoDotDot)
+        self.model.setRootPath(strRoot)
+        self.ui.treeView.setRootIndex(self.model.index(self.model.rootPath()))
                 
+        self.model1 = QStandardItemModel()
+        self.model2 = QStandardItemModel()
+        self.model3 = QStandardItemModel()
+        self.model4 = QStandardItemModel()
+                    
+        self.ui.tableBiomass.setModel(self.model1)
+        self.ui.tableGeom.setModel(self.model2)
+        self.ui.tableImages.setModel(self.model3)
+        self.ui.tableReports.setModel(self.model4)
+
+    def tryOpenFile(self,idx):
+        print 'comes here'
+        #print self.model1.item(0,0).data()[0]
+        #print self.model2.item(0,0).data()
+        #print self.model3.item(0,0).data()        
+        #print self.model4.item(0,0).data()
+        
+    def adjustPreview(self,idx):
+            QApplication.setOverrideCursor(Qt.WaitCursor)
+                            
             path=self.model.filePath(idx)
-            self.model1.setRootPath(path)
-            self.model2.setRootPath(path)
-            self.model3.setRootPath(path)
-                                                
-            self.ui.listBiomass.setRootIndex(self.model1.index(self.model1.rootPath()))
-            self.ui.listGeom.setRootIndex(self.model2.index(self.model2.rootPath()))
-            self.ui.listImages.setRootIndex(self.model3.index(self.model3.rootPath()))
-            
+             
+            self.model1.clear()   
+            self.model2.clear()   
+            self.model3.clear()   
+            self.model4.clear()   
+                                              
+            for root, subFolders, files in os.walk(str(path)):
+                for filename in files:
+                    list=[]
+                    filePath = os.path.join(root, filename)                                                                         
+                    item = QStandardItem(filename)
+                    list.append(item)
+                    item = QStandardItem(filePath)
+                    list.append(item)                                    
+                    if filename[-3:].lower() == 'xls':                    
+                        self.model1.appendRow(list)
+                    elif filename[-3:].lower() == 'mrg' or filename[-3:].lower() == 'bna':                    
+                        self.model2.appendRow(list)
+                    elif filename[-3:].lower() == 'png' or filename[-3:].lower() == 'jpg':
+                        self.model3.appendRow(list)                    
+                    elif filename[-3:].lower() == 'doc' or filename[-3:].lower() == 'txt':
+                        self.model4.appendRow(list)
                         
-            #QMessageBox.Information(self, unicode("Group tool"),
-             #     fileName,
-              #    QMessageBox.Ok
-               #   );
+            QApplication.restoreOverrideCursor()
+        
