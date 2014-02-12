@@ -7,7 +7,7 @@ from PyQt4.QtGui import *
 from mainfrm import Ui_MainWindow
 
 #strRoot=QDir.currentPath()
-strRoot='/'
+strRoot=QDir.rootPath()
 
 class groupDialog(QMainWindow):
 
