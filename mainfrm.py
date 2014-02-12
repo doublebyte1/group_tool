@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file 'mainfrm.ui'
 #
-# Created: Wed Feb 12 09:19:24 2014
+# Created: Wed Feb 12 12:37:53 2014
 #      by: PyQt4 UI code generator 4.9.3
 #
 # WARNING! All changes made in this file will be lost!
@@ -160,6 +160,9 @@ class Ui_MainWindow(object):
         QtCore.QObject.connect(self.checkImages, QtCore.SIGNAL(_fromUtf8("clicked(bool)")), self.tableImages.setVisible)
         QtCore.QObject.connect(self.checkReports, QtCore.SIGNAL(_fromUtf8("clicked(bool)")), self.tableReports.setVisible)
         QtCore.QObject.connect(self.tableReports, QtCore.SIGNAL(_fromUtf8("doubleClicked(QModelIndex)")), MainWindow.tryOpenFile)
+        QtCore.QObject.connect(self.tableBiomass, QtCore.SIGNAL(_fromUtf8("doubleClicked(QModelIndex)")), MainWindow.tryOpenFile)
+        QtCore.QObject.connect(self.tableGeom, QtCore.SIGNAL(_fromUtf8("doubleClicked(QModelIndex)")), MainWindow.tryOpenFile)
+        QtCore.QObject.connect(self.tableImages, QtCore.SIGNAL(_fromUtf8("doubleClicked(QModelIndex)")), MainWindow.tryOpenFile)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
 
     def retranslateUi(self, MainWindow):

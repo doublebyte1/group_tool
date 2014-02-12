@@ -418,6 +418,54 @@
     </hint>
    </hints>
   </connection>
+  <connection>
+   <sender>tableBiomass</sender>
+   <signal>doubleClicked(QModelIndex)</signal>
+   <receiver>MainWindow</receiver>
+   <slot>tryOpenFile(QModelIndex)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>339</x>
+     <y>373</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>560</x>
+     <y>351</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>tableGeom</sender>
+   <signal>doubleClicked(QModelIndex)</signal>
+   <receiver>MainWindow</receiver>
+   <slot>tryOpenFile(QModelIndex)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>560</x>
+     <y>373</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>560</x>
+     <y>351</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>tableImages</sender>
+   <signal>doubleClicked(QModelIndex)</signal>
+   <receiver>MainWindow</receiver>
+   <slot>tryOpenFile(QModelIndex)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>780</x>
+     <y>373</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>560</x>
+     <y>351</y>
+    </hint>
+   </hints>
+  </connection>
  </connections>
  <slots>
   <slot>adjustPreview(QModelIndex)</slot>

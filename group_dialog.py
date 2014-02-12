@@ -16,7 +16,7 @@ class groupDialog(QMainWindow):
         # Set up the user interface from Designer.
         self.ui = Ui_MainWindow()
         self.ui.setupUi(self)
-                        
+                                
         self.initTree()
         self.cleanLabels()
 
@@ -35,6 +35,7 @@ class groupDialog(QMainWindow):
         self.ui.treeView.setRootIndex(self.model.index(self.model.rootPath()))
         #idx=self.model.index(0,0)
         #self.adjustPreview(idx)
+        
                
     def initTree(self):                        
         #Setting model for the treeview (dirs only!)
@@ -56,13 +57,16 @@ class groupDialog(QMainWindow):
         self.ui.tableGeom.setModel(self.model2)
         self.ui.tableImages.setModel(self.model3)
         self.ui.tableReports.setModel(self.model4)
-
+                
     def tryOpenFile(self,idx):
-        print 'comes here'
-        #print self.model1.item(0,0).data()[0]
-        #print self.model2.item(0,0).data()
-        #print self.model3.item(0,0).data()        
-        #print self.model4.item(0,0).data()
+        #Cast the sender        
+        sender = self.sender()
+        
+        filePath=sender.model().data(sender.model().index(idx.row(),1)).toString()                  
+        #print filePath   
+        url="file://" + filePath
+        #print url
+        QDesktopServices.openUrl(QUrl(url, QUrl.TolerantMode))       
         
     def adjustCounters(self,path):
         self.ui.lbCurPath.setText('Current path: ' + path)
