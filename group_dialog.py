@@ -64,7 +64,10 @@ class groupDialog(QMainWindow):
         
         filePath=sender.model().data(sender.model().index(idx.row(),1)).toString()                  
         #print filePath   
-        url="file://" + filePath
+        fi=QFileInfo(filePath)
+        print fi.filePath()
+        
+        url="file://" + fi.filePath()
         print url
         QDesktopServices.openUrl(QUrl(url, QUrl.TolerantMode))       
         
