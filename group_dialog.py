@@ -7,7 +7,7 @@ from PyQt4.QtGui import *
 from mainfrm import Ui_MainWindow
 
 #strRoot=QDir.currentPath()
-strRoot='/media/IOMEGA HDD/Angola_Surveys/2002/'
+strRoot='/'
 
 class groupDialog(QMainWindow):
 
@@ -18,19 +18,32 @@ class groupDialog(QMainWindow):
         self.ui.setupUi(self)
                         
         self.initTree()
-               
+        self.cleanLabels()
+
+    def cleanLabels(self):
+        self.ui.lbBiomass.clear()
+        self.ui.lbGeometry.clear()
+        self.ui.lbImages.clear()
+        self.ui.lbText.clear()
+        self.ui.lbCurPath.clear()
+        self.ui.lbTotal.clear()
+                                                                               
     def chooseDir(self):
         strRoot = QFileDialog.getExistingDirectory(self, 'Open Root Dir')              
         self.ui.lbRootDir.setText('Root directory set to: '  + strRoot)   
         self.model.setRootPath(strRoot)
         self.ui.treeView.setRootIndex(self.model.index(self.model.rootPath()))
+        #idx=self.model.index(0,0)
+        #self.adjustPreview(idx)
                
     def initTree(self):                        
         #Setting model for the treeview (dirs only!)
-        self.model=QFileSystemModel()                                                        
+        self.model=QFileSystemModel()
+        self.model.sort(0,Qt.AscendingOrder)                                                        
         self.ui.treeView.setModel(self.model)        
         #self.model.setFilter(QDir.Dirs | QDir.NoDotAndDotDot)
-        self.model.setFilter(QDir.Dirs | QDir.NoDotDot)
+        #self.model.setFilter(QDir.Dirs | QDir.NoDotDot)
+        self.model.setFilter(QDir.Dirs | QDir.NoDotDot | QDir.NoDotAndDotDot)
         self.model.setRootPath(strRoot)
         self.ui.treeView.setRootIndex(self.model.index(self.model.rootPath()))
                 
@@ -51,6 +64,15 @@ class groupDialog(QMainWindow):
         #print self.model3.item(0,0).data()        
         #print self.model4.item(0,0).data()
         
+    def adjustCounters(self,path):
+        self.ui.lbCurPath.setText('Current path: ' + path)
+        self.ui.lbTotal.setText("Total files: " + QVariant(self.model1.rowCount()+self.model2.rowCount()+self.model3.rowCount()+self.model4.rowCount()).toString())
+        self.ui.lbGeometry.setText(QVariant(self.model2.rowCount()).toString()+ " files")
+        self.ui.lbImages.setText(QVariant(self.model3.rowCount()).toString()+ " files")
+        self.ui.lbText.setText(QVariant(self.model4.rowCount()).toString()+ " files")
+        
+        #self.ui.lbTotal.clear()        
+        
     def adjustPreview(self,idx):
             QApplication.setOverrideCursor(Qt.WaitCursor)
                             
@@ -61,7 +83,7 @@ class groupDialog(QMainWindow):
             self.model3.clear()   
             self.model4.clear()   
                                               
-            for root, subFolders, files in os.walk(str(path)):
+            for root, subFolders, files in os.walk(str(path)):                                                            
                 for filename in files:
                     list=[]
                     filePath = os.path.join(root, filename)                                                                         
@@ -78,5 +100,7 @@ class groupDialog(QMainWindow):
                     elif filename[-3:].lower() == 'doc' or filename[-3:].lower() == 'txt':
                         self.model4.appendRow(list)
                         
+            self.adjustCounters(path)
+                                    
             QApplication.restoreOverrideCursor()
         
