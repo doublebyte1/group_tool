@@ -65,7 +65,7 @@ class groupDialog(QMainWindow):
         filePath=sender.model().data(sender.model().index(idx.row(),1)).toString()                  
         #print filePath   
         url="file://" + filePath
-        #print url
+        print url
         QDesktopServices.openUrl(QUrl(url, QUrl.TolerantMode))       
         
     def adjustCounters(self,path):
