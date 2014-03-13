@@ -20,6 +20,10 @@ class groupDialog(QMainWindow):
         self.initTree()
         self.cleanLabels()
 
+    def go(self):
+        idx=self.ui.treeView.currentIndex()
+        self.adjustPreview(idx)
+        
     def cleanLabels(self):
         self.ui.lbBiomass.clear()
         self.ui.lbGeometry.clear()

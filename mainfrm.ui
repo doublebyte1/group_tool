@@ -51,138 +51,7 @@
        <string>Preview</string>
       </property>
       <layout class="QGridLayout" name="gridLayout">
-       <item row="1" column="4">
-        <widget class="QCheckBox" name="checkReports">
-         <property name="text">
-          <string>Reports(*.doc,*.txt)</string>
-         </property>
-         <property name="checked">
-          <bool>true</bool>
-         </property>
-        </widget>
-       </item>
-       <item row="2" column="3">
-        <widget class="QTableView" name="tableImages">
-         <property name="editTriggers">
-          <set>QAbstractItemView::NoEditTriggers</set>
-         </property>
-         <property name="alternatingRowColors">
-          <bool>true</bool>
-         </property>
-         <property name="selectionBehavior">
-          <enum>QAbstractItemView::SelectRows</enum>
-         </property>
-         <attribute name="horizontalHeaderVisible">
-          <bool>false</bool>
-         </attribute>
-         <attribute name="horizontalHeaderCascadingSectionResizes">
-          <bool>true</bool>
-         </attribute>
-         <attribute name="horizontalHeaderStretchLastSection">
-          <bool>true</bool>
-         </attribute>
-         <attribute name="verticalHeaderVisible">
-          <bool>true</bool>
-         </attribute>
-         <attribute name="verticalHeaderCascadingSectionResizes">
-          <bool>true</bool>
-         </attribute>
-        </widget>
-       </item>
-       <item row="0" column="0" rowspan="2">
-        <widget class="QLabel" name="label_3">
-         <property name="text">
-          <string>Survey List</string>
-         </property>
-         <property name="buddy">
-          <cstring>treeView</cstring>
-         </property>
-        </widget>
-       </item>
-       <item row="2" column="4">
-        <widget class="QTableView" name="tableReports">
-         <property name="editTriggers">
-          <set>QAbstractItemView::NoEditTriggers</set>
-         </property>
-         <property name="selectionBehavior">
-          <enum>QAbstractItemView::SelectRows</enum>
-         </property>
-         <attribute name="horizontalHeaderVisible">
-          <bool>false</bool>
-         </attribute>
-         <attribute name="horizontalHeaderCascadingSectionResizes">
-          <bool>true</bool>
-         </attribute>
-         <attribute name="horizontalHeaderStretchLastSection">
-          <bool>true</bool>
-         </attribute>
-         <attribute name="verticalHeaderVisible">
-          <bool>true</bool>
-         </attribute>
-         <attribute name="verticalHeaderCascadingSectionResizes">
-          <bool>true</bool>
-         </attribute>
-        </widget>
-       </item>
-       <item row="1" column="1">
-        <widget class="QCheckBox" name="checkBiomass">
-         <property name="text">
-          <string>Biomass Calculation (*.xls)</string>
-         </property>
-         <property name="checked">
-          <bool>true</bool>
-         </property>
-        </widget>
-       </item>
-       <item row="1" column="2">
-        <widget class="QCheckBox" name="checkGeom">
-         <property name="text">
-          <string>Geometry (*.bna,*.mrg)</string>
-         </property>
-         <property name="checked">
-          <bool>true</bool>
-         </property>
-        </widget>
-       </item>
-       <item row="1" column="3">
-        <widget class="QCheckBox" name="checkImages">
-         <property name="text">
-          <string>Images (*.png, *.jpg)</string>
-         </property>
-         <property name="checked">
-          <bool>true</bool>
-         </property>
-        </widget>
-       </item>
-       <item row="2" column="2">
-        <widget class="QTableView" name="tableGeom">
-         <property name="editTriggers">
-          <set>QAbstractItemView::NoEditTriggers</set>
-         </property>
-         <property name="alternatingRowColors">
-          <bool>true</bool>
-         </property>
-         <property name="selectionBehavior">
-          <enum>QAbstractItemView::SelectRows</enum>
-         </property>
-         <attribute name="horizontalHeaderVisible">
-          <bool>false</bool>
-         </attribute>
-         <attribute name="horizontalHeaderCascadingSectionResizes">
-          <bool>true</bool>
-         </attribute>
-         <attribute name="horizontalHeaderStretchLastSection">
-          <bool>true</bool>
-         </attribute>
-         <attribute name="verticalHeaderVisible">
-          <bool>true</bool>
-         </attribute>
-         <attribute name="verticalHeaderCascadingSectionResizes">
-          <bool>true</bool>
-         </attribute>
-        </widget>
-       </item>
-       <item row="2" column="1">
+       <item row="4" column="1">
         <widget class="QTableView" name="tableBiomass">
          <property name="editTriggers">
           <set>QAbstractItemView::NoEditTriggers</set>
@@ -213,17 +82,138 @@
          </attribute>
         </widget>
        </item>
-       <item row="3" column="0">
-        <widget class="QLabel" name="lbCurPath">
+       <item row="3" column="4">
+        <widget class="QCheckBox" name="checkReports">
          <property name="text">
-          <string>CURRENT PATH</string>
+          <string>Reports(*.doc,*.txt)</string>
+         </property>
+         <property name="checked">
+          <bool>true</bool>
+         </property>
+        </widget>
+       </item>
+       <item row="4" column="3">
+        <widget class="QTableView" name="tableImages">
+         <property name="editTriggers">
+          <set>QAbstractItemView::NoEditTriggers</set>
+         </property>
+         <property name="alternatingRowColors">
+          <bool>true</bool>
+         </property>
+         <property name="selectionBehavior">
+          <enum>QAbstractItemView::SelectRows</enum>
+         </property>
+         <attribute name="horizontalHeaderVisible">
+          <bool>false</bool>
+         </attribute>
+         <attribute name="horizontalHeaderCascadingSectionResizes">
+          <bool>true</bool>
+         </attribute>
+         <attribute name="horizontalHeaderStretchLastSection">
+          <bool>true</bool>
+         </attribute>
+         <attribute name="verticalHeaderVisible">
+          <bool>true</bool>
+         </attribute>
+         <attribute name="verticalHeaderCascadingSectionResizes">
+          <bool>true</bool>
+         </attribute>
+        </widget>
+       </item>
+       <item row="2" column="0" rowspan="2">
+        <widget class="QLabel" name="label_3">
+         <property name="text">
+          <string>Survey List</string>
          </property>
          <property name="buddy">
           <cstring>treeView</cstring>
          </property>
         </widget>
        </item>
-       <item row="2" column="0">
+       <item row="4" column="4">
+        <widget class="QTableView" name="tableReports">
+         <property name="editTriggers">
+          <set>QAbstractItemView::NoEditTriggers</set>
+         </property>
+         <property name="selectionBehavior">
+          <enum>QAbstractItemView::SelectRows</enum>
+         </property>
+         <attribute name="horizontalHeaderVisible">
+          <bool>false</bool>
+         </attribute>
+         <attribute name="horizontalHeaderCascadingSectionResizes">
+          <bool>true</bool>
+         </attribute>
+         <attribute name="horizontalHeaderStretchLastSection">
+          <bool>true</bool>
+         </attribute>
+         <attribute name="verticalHeaderVisible">
+          <bool>true</bool>
+         </attribute>
+         <attribute name="verticalHeaderCascadingSectionResizes">
+          <bool>true</bool>
+         </attribute>
+        </widget>
+       </item>
+       <item row="3" column="1">
+        <widget class="QCheckBox" name="checkBiomass">
+         <property name="text">
+          <string>Biomass Calculation (*.xls)</string>
+         </property>
+         <property name="checked">
+          <bool>true</bool>
+         </property>
+        </widget>
+       </item>
+       <item row="3" column="2">
+        <widget class="QCheckBox" name="checkGeom">
+         <property name="text">
+          <string>Geometry (*.bna,*.mrg)</string>
+         </property>
+         <property name="checked">
+          <bool>true</bool>
+         </property>
+        </widget>
+       </item>
+       <item row="3" column="3">
+        <widget class="QCheckBox" name="checkImages">
+         <property name="text">
+          <string>Images (*.png, *.jpg)</string>
+         </property>
+         <property name="checked">
+          <bool>true</bool>
+         </property>
+        </widget>
+       </item>
+       <item row="4" column="2">
+        <widget class="QTableView" name="tableGeom">
+         <property name="editTriggers">
+          <set>QAbstractItemView::NoEditTriggers</set>
+         </property>
+         <property name="alternatingRowColors">
+          <bool>true</bool>
+         </property>
+         <property name="selectionBehavior">
+          <enum>QAbstractItemView::SelectRows</enum>
+         </property>
+         <attribute name="horizontalHeaderVisible">
+          <bool>false</bool>
+         </attribute>
+         <attribute name="horizontalHeaderCascadingSectionResizes">
+          <bool>true</bool>
+         </attribute>
+         <attribute name="horizontalHeaderStretchLastSection">
+          <bool>true</bool>
+         </attribute>
+         <attribute name="verticalHeaderVisible">
+          <bool>true</bool>
+         </attribute>
+         <attribute name="verticalHeaderCascadingSectionResizes">
+          <bool>true</bool>
+         </attribute>
+        </widget>
+       </item>
+       <item row="4" column="0">
         <widget class="QTreeView" name="treeView">
          <property name="alternatingRowColors">
           <bool>true</bool>
@@ -239,7 +229,17 @@
          </property>
         </widget>
        </item>
-       <item row="3" column="1">
+       <item row="5" column="0">
+        <widget class="QLabel" name="lbCurPath">
+         <property name="text">
+          <string>CURRENT PATH</string>
+         </property>
+         <property name="buddy">
+          <cstring>treeView</cstring>
+         </property>
+        </widget>
+       </item>
+       <item row="5" column="1">
         <widget class="QLabel" name="lbBiomass">
          <property name="text">
           <string>BIOMASS FILES</string>
@@ -249,7 +249,7 @@
          </property>
         </widget>
        </item>
-       <item row="3" column="3">
+       <item row="5" column="3">
         <widget class="QLabel" name="lbImages">
          <property name="text">
           <string>IMAGE FILES</string>
@@ -259,7 +259,7 @@
          </property>
         </widget>
        </item>
-       <item row="3" column="2">
+       <item row="5" column="2">
         <widget class="QLabel" name="lbGeometry">
          <property name="text">
           <string>GEOM FILES</string>
@@ -269,7 +269,7 @@
          </property>
         </widget>
        </item>
-       <item row="3" column="4">
+       <item row="5" column="4">
         <widget class="QLabel" name="lbText">
          <property name="text">
           <string>TEXT FILES</string>
@@ -279,13 +279,20 @@
          </property>
         </widget>
        </item>
-       <item row="4" column="0">
+       <item row="6" column="0">
         <widget class="QLabel" name="lbTotal">
          <property name="text">
           <string>TOTAL</string>
          </property>
          <property name="buddy">
           <cstring>treeView</cstring>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="0">
+        <widget class="QPushButton" name="pushGo">
+         <property name="text">
+          <string>Go</string>
          </property>
         </widget>
        </item>
@@ -322,22 +329,6 @@
  </widget>
  <resources/>
  <connections>
-  <connection>
-   <sender>treeView</sender>
-   <signal>clicked(QModelIndex)</signal>
-   <receiver>MainWindow</receiver>
-   <slot>adjustPreview(QModelIndex)</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>146</x>
-     <y>343</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>560</x>
-     <y>307</y>
-    </hint>
-   </hints>
-  </connection>
   <connection>
    <sender>checkBiomass</sender>
    <signal>clicked(bool)</signal>
@@ -466,10 +457,27 @@
     </hint>
    </hints>
   </connection>
+  <connection>
+   <sender>pushGo</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>go()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>119</x>
+     <y>95</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>560</x>
+     <y>351</y>
+    </hint>
+   </hints>
+  </connection>
  </connections>
  <slots>
   <slot>adjustPreview(QModelIndex)</slot>
   <slot>chooseDir()</slot>
   <slot>tryOpenFile(QModelIndex)</slot>
+  <slot>go()</slot>
  </slots>
 </ui>
